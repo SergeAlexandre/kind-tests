@@ -20,13 +20,28 @@ ___
 ___
 
 ### Install Docker Mac Net Connect
+
 Install Docker Mac Net Connect on your machine to be able to connect directly to Docker-for-Mac containers via their IP addresses.
+
+```
+brew install chipmk/tap/docker-mac-net-connect
+sudo brew services start chipmk/tap/docker-mac-net-connect
+# To check:
+brew services list
+```
+
+### Install Task
+
+```
+brew install go-task
+```
 
 ### Create a certificate authority for kind (ca.kind)
 
     task create-ca
 
 ### Create a kind cluster : Automatic setup
+
 You can try to use the setup-kind or the setup-kind-ha tasks to install kind with metallb, cert-manager and nginx-ingress controller.
 
 For a single node cluster (1 container) :
@@ -40,7 +55,9 @@ For a HA cluster (5 containers) :
 
 
 ### Create a kind cluster : Manual setup
+
 #### Create kind cluster
+
 Prepare the cluster config file (X-cluster-config.yaml) and then create the cluster. Kind will create a config file to the KUBECONFIG path (Make sure to set the KUBECONFIG environement variable to set a custom path if needed, ~/.kube/config is the default one).
 For a single node cluster (1 container) :
   
@@ -52,7 +69,7 @@ For a HA cluster (5 containers) :
 
 #### Deploy MetalLB (https://kind.sigs.k8s.io/docs/user/loadbalancer/)
     
-    install-metallb
+    task install-metallb
 
 #### Deploy Cert manager
     

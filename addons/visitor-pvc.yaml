@@ -1,0 +1,71 @@
+#---
+#apiVersion: kyverno.io/v2alpha1
+#kind: PolicyException
+#metadata:
+#  name: visitor-default
+#  namespace: kyverno
+#spec:
+#  exceptions:
+#    - policyName: disallow-privilege-escalation
+#      ruleNames:
+#        - privilege-escalation
+#        - autogen-privilege-escalation
+#    - policyName: disallow-capabilities-strict
+#      ruleNames:
+#        - require-drop-all
+#        - autogen-require-drop-all
+#
+#    - policyName: require-run-as-nonroot
+#      ruleNames:
+#        - run-as-non-root
+#        - autogen-run-as-non-root
+#    - policyName: restrict-seccomp-strict
+#      ruleNames:
+#        - check-seccomp-strict
+#        - autogen-check-seccomp-strict
+#  match:
+#    any:
+#      - resources:
+#          kinds:
+#            - Pod
+#          namespaces:
+#            - default
+#          names:
+#            - visitor*
+#
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: visitor-local-claim1
+  labels:
+    app: visitor
+spec:
+  storageClassName: standard
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: visitor
+  labels:
+    app: visitor
+spec:
+  containers:
+  - name: visitor
+    image: ubuntu
+    command: ["/bin/sh", "-c", "while : ;do echo '--------- Alive'; sleep 60; done"]
+    volumeMounts:
+    - name: data1
+      mountPath: /data1
+  volumes:
+  - name: data1
+    persistentVolumeClaim:
+      claimName: visitor-local-claim1
