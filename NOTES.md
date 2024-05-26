@@ -152,9 +152,10 @@ Cleanup:
 
 ```
 docker stop $(docker ps -a -q)
-docker container prune
+docker container prune --force
 docker volume prune --all --force
 docker image prune --all --force
+docker network prune --force
 ```
 
 ```
@@ -170,3 +171,4 @@ https://github.com/kubernetes-sigs/kind/issues/2715
 
 https://github.com/kubernetes-sigs/kind/issues/2045
 https://github.com/kubernetes-sigs/kind/pull/2775
+https://github.com/kubernetes-sigs/kind/issues/2579

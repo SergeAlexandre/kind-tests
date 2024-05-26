@@ -1,0 +1,79 @@
+[
+    {
+        "Name": "kind",
+        "Id": "6c4adb6c25579b814215156d0d6ec9c0f7a16cddac60390078ba592ec752ea97",
+        "Created": "2024-03-16T11:03:01.566229651Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": true,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "fc00:f853:ccd:e793::/64"
+                },
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "03e1923413b6abd8881ec33ed35b388bf8f30680c0475356bcc655de34a78a2c": {
+                "Name": "kind1-control-plane3",
+                "EndpointID": "17054125e20414c48da75103c0e08ea7c58efa85081c8f73748f508187615f74",
+                "MacAddress": "02:42:ac:12:00:03",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": "fc00:f853:ccd:e793::3/64"
+            },
+            "56cb54b379c3e4eeca17dfb3f9727a76826c61cbd943c3c045b9a3df89030119": {
+                "Name": "kind1-external-load-balancer",
+                "EndpointID": "3c6fe115eb21be1385c0aa5016ddb4911904255b66b2831882c86dece3a2abc9",
+                "MacAddress": "02:42:ac:12:00:07",
+                "IPv4Address": "172.18.0.7/16",
+                "IPv6Address": "fc00:f853:ccd:e793::7/64"
+            },
+            "8523237140a098fd8231dc7b208edc90f5988980d094fc7cff469d594e1b0d8b": {
+                "Name": "kind1-worker2",
+                "EndpointID": "9a2b0341ea744fd7c8c193f07cdb7e26eae0340aec3fcf5eebc36a6960635def",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": "fc00:f853:ccd:e793::2/64"
+            },
+            "94bb1ae95a74cfb5e815f77efb1616c3e7bc9c25faeed7eb1799afd1daa26fa1": {
+                "Name": "kind1-worker",
+                "EndpointID": "d2e93c951280d5bba7ebd11d904fcba2d4cbe06bd30df73ccc49e1ef3b896c0a",
+                "MacAddress": "02:42:ac:12:00:05",
+                "IPv4Address": "172.18.0.5/16",
+                "IPv6Address": "fc00:f853:ccd:e793::5/64"
+            },
+            "eb73fbdbbb025ceeafa7b5c80779b908a45fab307ca75493715ec195e0fd089a": {
+                "Name": "kind1-control-plane",
+                "EndpointID": "2212591d02ed8c4b57ef93936eed6791222f339a1a1834d1b3217ddfce816487",
+                "MacAddress": "02:42:ac:12:00:06",
+                "IPv4Address": "172.18.0.6/16",
+                "IPv6Address": "fc00:f853:ccd:e793::6/64"
+            },
+            "f6975d15b53be30115b5dee5a1fc1fbbf58f77eb6881eda87206ec50938a23ab": {
+                "Name": "kind1-control-plane2",
+                "EndpointID": "e35d49044c5f222b435b87cf9ce4a047704e4adb0309f5b6d886a2bc7550cd04",
+                "MacAddress": "02:42:ac:12:00:04",
+                "IPv4Address": "172.18.0.4/16",
+                "IPv6Address": "fc00:f853:ccd:e793::4/64"
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.driver.mtu": "65535"
+        },
+        "Labels": {}
+    }
+]
